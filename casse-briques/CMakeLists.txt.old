@@ -1,0 +1,32 @@
+cmake_minimum_required(VERSION 3.6)
+
+add_subdirectory(external/SDL-release-2.30.2)
+add_subdirectory(external/SDL_ttf-release-2.22.0)
+add_subdirectory(external/SDL_image-release-2.8.2)
+
+project(TP_PRG_AV LANGUAGES CXX)
+
+function(COMPILATION)
+    cmake_parse_arguments( COMPILATION_PREFIX "USE_SDL" "EXEC" "SRC" ${ARGN})
+    add_executable(${COMPILATION_PREFIX_EXEC} src/main.cpp src/main.h src/game/app.cpp src/game/app.h src/game/events_handler.cpp src/game/events_handler.h src/game/player.cpp src/game/player.h src/game/ball.cpp src/game/ball.h src/utils/sdl_utils.h src/utils/sdl_utils.cpp)
+    target_sources(${COMPILATION_PREFIX_EXEC} PRIVATE ${COMPILATION_PREFIX_SRC})
+    target_include_directories(${COMPILATION_PREFIX_EXEC} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}})
+    set_target_properties(${COMPILATION_PREFIX_EXEC} PROPERTIES CXX_STANDARD 17)
+    if (${COMPILATION_PREFIX_USE_SDL})
+        target_link_libraries(${COMPILATION_PREFIX_EXEC} PRIVATE SDL2main SDL2-static)
+    endif()
+endfunction()
+
+#file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/tp1/pacman_sprites.bmp
+#	DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/)
+
+
+# ajouter les sources ici
+
+set(SRC_FILES src/main.cpp)
+
+# fonction de compilation
+# syntaxe ( EXEC nom_executable SRC sources  [USE_SDL] )
+
+compilation(EXEC casse-briques SRC ${SRC_FILES} USE_SDL)
+

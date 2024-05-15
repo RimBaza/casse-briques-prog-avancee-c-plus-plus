@@ -1,0 +1,31 @@
+How to compile the project and build the executable of : "casse-briques" project
+SDL2 : Simple Directmedia Layer
+
+cd build
+cmake ../casse-briques
+make -j4
+
+
+Sources (links) :
+==================
+	https://wiki.libsdl.org/SDL2/FrontPage
+	https://www.parallelrealities.co.uk/tutorials/
+	https://www.geeksforgeeks.org/naming-convention-in-c/
+	https://www.youtube.com/watch?v=oZ92bAOOrLI
+	https://github.com/JeremiahCheatham/Gforth-SDL2-Bindings
+	https://www.studyplan.dev/sdl-dev/building-sdl
+	https://www.studyplan.dev/sdl-dev/sdl2-cmake
+
+
+Install :
+==========
+sudo apt install libsdl2-dev
+
+sudo apt-get install libSDL-ttf2.0-0
+sudo apt-get install libSDL-ttf2.0-0:i386
+
+sudo apt-get install libsdl2-ttf-2.0-0
+sudo apt-get install libsdl2-mixer-2.0-0 libsdl2-image-2.0-0 libsdl2-ttf-2.0-0
+
+
+
